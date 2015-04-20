@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{Rcita}
+{R Core Team}.
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2013.
+
+\bibitem{islr}
+T.~Hastie G.~James, D.~Witten and R.~Tibshirani.
+\newblock {\em An Introduction to Statistical Learning with Applications in R}.
+\newblock Springer, 2013.
+
+\bibitem{khv}
+Ron Kohavi.
+\newblock A study of cross-validation and bootstrap for accuracy estimation and
+  model selection.
+\newblock In {\em International Joint Conference on Artificial Intelligence},
+  1995.
+
+\end{thebibliography}
