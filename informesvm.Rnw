@@ -20,6 +20,8 @@
 \section{Introducción}
 Cuando se trabaja con grandes volúmenes de datos o modelos complejos para problemas de clasificación, es común realizar la evaluación y validación de los ajustes con una partición simple de los datos en subconjuntos de entrenamiento y test, en lugar de técnicas más avanzadas como la validación cruzada, debido al elevado coste computacional que ésta supone.\par
 Como propuesta frente a este problema, se ha realizado un ejercicio de implementación de la validación cruzada en R \cite{Rcita} para entrenamiento y evaluación de máquinas de vectores soporte (SVM) empleadas como clasificadores, que puede servir de base para ser aplicado a problemas más avanzados.\par
+El código está disponible para su consulta en \href{https://github.com/nachosandres/crossval-parallelization}{GitHub}.\par
+
 \section{Máquinas de Vectores Soporte (SVM)}
 Las máquinas de vectores soporte (en adelante SVM, por sus siglas en inglés) son un tipo de algoritmo de \textit{machine learning} supervisado, empleado principalmente para clasificación aunque tiene también aplicaciones en regresión \cite{islr}.\par
 La idea fundamental de las SVM es la búsqueda de un hiperplano que marque una frontera lineal entre las clases de datos. Un hiperplano es un subespacio plano de dimensión $D-1$, donde $D$ es la dimensión de los datos. Para que la elección del hiperplano sea única, se busca maximizar la distancia respecto de los puntos a ambos lados de la frontera, como se muestra en la figura \ref{fig:svmlineal}. Lo que hace especial a este algoritmo es que el hiperplano queda delimitado únicamente en función de un conjunto de puntos cercanos a la frontera, apropiadamente denominados vectores soporte.\par

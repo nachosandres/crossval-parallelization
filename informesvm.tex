@@ -21,6 +21,8 @@
 \section{Introducción}
 Cuando se trabaja con grandes volúmenes de datos o modelos complejos para problemas de clasificación, es común realizar la evaluación y validación de los ajustes con una partición simple de los datos en subconjuntos de entrenamiento y test, en lugar de técnicas más avanzadas como la validación cruzada, debido al elevado coste computacional que ésta supone.\par
 Como propuesta frente a este problema, se ha realizado un ejercicio de implementación de la validación cruzada en R \cite{Rcita} para entrenamiento y evaluación de máquinas de vectores soporte (SVM) empleadas como clasificadores, que puede servir de base para ser aplicado a problemas más avanzados.\par
+El código está disponible para su consulta en \href{https://github.com/nachosandres/crossval-parallelization}{GitHub}.\par
+
 \section{Máquinas de Vectores Soporte (SVM)}
 Las máquinas de vectores soporte (en adelante SVM, por sus siglas en inglés) son un tipo de algoritmo de \textit{machine learning} supervisado, empleado principalmente para clasificación aunque tiene también aplicaciones en regresión \cite{islr}.\par
 La idea fundamental de las SVM es la búsqueda de un hiperplano que marque una frontera lineal entre las clases de datos. Un hiperplano es un subespacio plano de dimensión $D-1$, donde $D$ es la dimensión de los datos. Para que la elección del hiperplano sea única, se busca maximizar la distancia respecto de los puntos a ambos lados de la frontera, como se muestra en la figura \ref{fig:svmlineal}. Lo que hace especial a este algoritmo es que el hiperplano queda delimitado únicamente en función de un conjunto de puntos cercanos a la frontera, apropiadamente denominados vectores soporte.\par
@@ -104,7 +106,7 @@ Se ha entrenado y evaluado la SVM mediante validación cruzada con 10 iteracione
 Se obtienen los mejores resultados para kernel polinómico de grado impar, con independencia del coste. No se observa tendencia al sobreajuste ni sensibilidad a las variaciones en los datos de entrenamiento.\par
 La ejecución de los entrenamientos y evaluaciones de las SVM se ha realizado en paralelo sobre 4 núcleos entre los que se reparten las iteraciones sobre diferentes subconjuntos de la validación cruzada. Con esto, el tiempo de ejecución de esta parte del código se redujo a un 56\% del tiempo requerido para la computación en serie.\par
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Mon Apr 20 13:14:49 2015
+% Mon Apr 20 15:42:12 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrr}
@@ -123,7 +125,7 @@ La ejecución de los entrenamientos y evaluaciones de las SVM se ha realizado en
 \label{table:train}
 \end{table}
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Mon Apr 20 13:14:49 2015
+% Mon Apr 20 15:42:12 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrr}
@@ -142,7 +144,7 @@ La ejecución de los entrenamientos y evaluaciones de las SVM se ha realizado en
 \label{table:test}
 \end{table}
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Mon Apr 20 13:14:49 2015
+% Mon Apr 20 15:42:12 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrr}
@@ -160,7 +162,7 @@ La ejecución de los entrenamientos y evaluaciones de las SVM se ha realizado en
 \caption{Desviaciones estándar de AUC para los subconjuntos de entrenamiento. Las filas indican el parámetro coste, las columnas el grado del polinomio del kernel.} 
 \label{table:sdtrain}
 \end{table}% latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Mon Apr 20 13:14:49 2015
+% Mon Apr 20 15:42:12 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrr}
